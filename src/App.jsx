@@ -1,18 +1,21 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
 import { CustomerAdd } from "./CustomerAdd";
 import { CustomerView } from "./CustomerView";
-
+import { Provider } from "react-redux";
+import { store } from "./store";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <h1>React Redux Customer Example</h1>
-      <CustomerAdd />
-    </div>
+    <Provider store={store}>
+      <div>
+        <h1>React Redux Customer Example</h1>
+        <CustomerAdd />
+        <CustomerView />
+      </div>
+    </Provider>
   );
 }
 
